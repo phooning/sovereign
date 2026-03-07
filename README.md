@@ -9,7 +9,9 @@ Notwithstanding the fact that you:
 
 ## Get Started
 
-Get the **bulk download** of the [global SRTM](https://portal.opentopography.org/raster?opentopoID=OTSRTM.042013.4326.1)] or the Copernicus 90m dataset to preprocess the sidecar.
+1. (Optional) Get the **bulk download** of the [global SRTM](https://portal.opentopography.org/raster?opentopoID=OTSRTM.042013.4326.1) or the Copernicus 90m dataset to preprocess the sidecar.
+  
+> Do this if you want to generate quantized-mesh maps on the fly.
 
 ```sh
 nvm install latest
