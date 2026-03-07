@@ -9,6 +9,8 @@ Notwithstanding the fact that you:
 
 ## Get Started
 
+Get the **bulk download** of the [global SRTM](https://portal.opentopography.org/raster?opentopoID=OTSRTM.042013.4326.1)] or the Copernicus 90m dataset to preprocess the sidecar.
+
 ```sh
 nvm install latest
 npm i -pnpm
@@ -31,5 +33,10 @@ pnpm tauri dev
 Overall, React and the browser environment simply cannot handle the logic for culling and displaying millions of objects (video feeds, NATO symbols, open source intelligence markers, etc). It must be treated only as a small display arm for Rust to decide. The "world state" of telemetry, spatial indexing, and heavy lifting is done in the backend to optimize the sent buffers based on the camera frustrum from the frontend. Therefore:
 
 - Even the Cesium `Entity` API cannot be used - we must generate `czml` packets ourselves for Cesium to process.
-- Stream videos through the ffmpeg socket.
-- Rely on a least-minimal optimization architecture by the time it shows up on screen, heavy culling should already be processed by Rust.
+- Stream videos through a `ffmpeg` socket.
+- Rely on completely optimized data by the time it shows up on screen, heavy culling should already be processed by Rust.
+- Locally processed Cesium `.terrain` maps from WGS84 (EPSG:4326) coordinate reference GeoTIFF `.tif` maps, *if* you want to not rely on Cesium or commercial online services.
+  - Option 1: Pre-tile everything (massive disk space >1 TB)
+  - Option 2: Generate maps on demand using sidecar.
+  - Option 3 (commercial): Rely on a MapTiler server.
+
